@@ -29,9 +29,18 @@ const upload = multer({ storage: fileStorageEngine });
 
 /*** Routes ***/
 
-// Get route to direct to index.html
+// homepage
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res
+    .status(200)
+    .send(
+      '<h1>Home Page</h1><p> Go to <a href="http://localhost:5000/upload_forms">Upload Forms Page</a> to try on uploading file(s) </p>'
+    );
+});
+
+// GET route to direct to upload_forms.html
+app.get('/upload_forms', (req, res) => {
+  res.sendFile(path.join(__dirname, 'upload_forms.html'));
 });
 
 // POST route to upload single file to server
