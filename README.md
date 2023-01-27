@@ -55,7 +55,7 @@ app.get('/upload_forms', (req, res) => {
 
 ### Upload single file
 -  Use upload.single(fieldname) in post function
-#### API example: http://localhost:5000/users/1/upload/single
+#### POST API example: /users/1/upload/single
 ```js
 app.post('/users/:id/upload/single', upload.single('image'), (req, res) => {
 
@@ -70,7 +70,7 @@ app.post('/users/:id/upload/single', upload.single('image'), (req, res) => {
 ```
 
 ### Upload multiple files
-#### API example: http://localhost:5000/users/1/upload/multiple
+#### POST API example: /users/1/upload/multiple
 -  Use upload.array(fieldname [, max files]) in post function
 ```js
 app.post('/users/:id/upload/multiple', upload.array('images', 3), (req, res) => {
