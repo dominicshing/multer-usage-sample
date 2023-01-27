@@ -1,4 +1,4 @@
-# Multer Sample Project
+# Multer Usage Sample
 
 To show the basic uses of 'Multer' node package for uploading files
 
