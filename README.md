@@ -27,7 +27,6 @@ const fileStorageEngine = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, `./images/id_${req.params.id}`);
   },
-  
   filename: (req, file, callback) => {
     callback(null, Date.now() + '--' + file.originalname);
   }
@@ -44,8 +43,7 @@ const upload = multer({ storage: fileStorageEngine });
 
 ## Setting routes for uploading files
 
-### GET the upload forms from index.html
-- GET route to direct to index.html
+### Get the upload forms from index.html
 ```js
 app.get('/', (req, res) => {
 
@@ -55,14 +53,13 @@ app.get('/', (req, res) => {
 ```
 
 ### Upload single file
-- POST route to upload single file to server
+-  Use upload.single(fieldname) in post function
+
 ```js
 app.post('/users/:id/upload/single', upload.single('image'), (req, res) => {
 
   const userId = req.params.id;
-  
   console.log(req.file);
-  
   res.status(200).json({
     message: `single file uploaded success to user ${userId}`,
     uploadedFile: req.file,
@@ -72,12 +69,10 @@ app.post('/users/:id/upload/single', upload.single('image'), (req, res) => {
 ```
 
 ### Upload multiple files
-- POST route to upload multiple files to server
+-  Use upload.array(fieldname [, max files]) in post function
 ```js
-app.post(
-  '/users/:id/upload/multiple',
-  upload.array('images', 3),
-  (req, res) => {
+app.post('/users/:id/upload/multiple', upload.array('images', 3), (req, res) => {
+
     const userId = req.params.id;
     console.log(req.files);
     res.status(200).json({
@@ -85,6 +80,7 @@ app.post(
       uploadedFiles: req.files,
     });
   }
+  
 );
 ```
 
