@@ -1,6 +1,6 @@
 # Multer Usage Sample
 
-To show the basic uses of 'Multer' node package for uploading files
+To show the basic uses of 'Multer' node package for uploading files to server or localhost
 
 ## To install and import "Multer" package
 
