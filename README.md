@@ -16,7 +16,7 @@ const multer = require('multer')
 
 ## To initialize StorageEngine object
 
-### Properties included
+### Properties defined
 - **destination**: Set destination for saving the upload file(s) in localhost / server
 - **filename**: Set the new file name to be applied after uploading to localhost / server
 
