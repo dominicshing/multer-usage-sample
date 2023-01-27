@@ -44,7 +44,7 @@ const upload = multer({ storage: fileStorageEngine });
 ## Setting routes for uploading files
 
 ### Get the upload forms from upload_forms.html
-#### URL of upload forms: http://localhost:5000/upload_forms
+#### URL of upload forms: localhost:5000/upload_forms
 ```js
 app.get('/upload_forms', (req, res) => {
 
