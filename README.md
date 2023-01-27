@@ -4,9 +4,9 @@ To show the basic uses of 'Multer' node package for uploading files
 
 ## To install and import "Multer" package
 
-- Intall multer package 
+- Intall multer package (express also needed)
 ```
-npm install multer
+npm install multer express
 ```
 
 - Import multer package
@@ -43,18 +43,19 @@ const upload = multer({ storage: fileStorageEngine });
 
 ## Setting routes for uploading files
 
-### Get the upload forms from index.html
+### Get the upload forms from upload_forms.html
+#### URL of upload forms: http://localhost:5000/upload_forms
 ```js
-app.get('/', (req, res) => {
+app.get('/upload_forms', (req, res) => {
 
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'upload_forms.html'));
   
 });
 ```
 
 ### Upload single file
 -  Use upload.single(fieldname) in post function
-
+#### API example: http://localhost:5000/users/1/upload/single
 ```js
 app.post('/users/:id/upload/single', upload.single('image'), (req, res) => {
 
@@ -69,6 +70,7 @@ app.post('/users/:id/upload/single', upload.single('image'), (req, res) => {
 ```
 
 ### Upload multiple files
+#### API example: http://localhost:5000/users/1/upload/multiple
 -  Use upload.array(fieldname [, max files]) in post function
 ```js
 app.post('/users/:id/upload/multiple', upload.array('images', 3), (req, res) => {
